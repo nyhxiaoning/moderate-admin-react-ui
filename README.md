@@ -1,9 +1,3 @@
-<p align="center">
- <img alt="antd-admin" height="268" src="./_assets/info.png">
-</p>
-
-<h1 align="center">Moderate Admin</h1>
-
 
 
 <div align="center">
@@ -28,6 +22,11 @@
 [English Version (Switch to English)](./README.en-US.md)
 
 ---
+
+
+
+
+
 
 ## 资源链接
 
@@ -59,7 +58,7 @@
 
 ## 技术选型
 
-- React 18 / React 19
+- React 18 （React 19会有问题）
 - Ant Design 5 / Shadcn
 - Redux
 - React Router
@@ -78,6 +77,8 @@
 
 | ![](_assets/shadcn-nextjs-2.png) | ![](_assets/shadcn-nexts-1.png) |
 | :------------------------------: | :-----------------------------: |
+
+
 
 ## ruoyi-pro 核心功能对接
 
@@ -111,10 +112,123 @@ pnpm run start
 
 ### 后端说明
 
-本地开发推荐自建芋道 ruoyi 项目进行接口对接。
-如无需本地配置，可直接体验：项目默认对接了我的测试服务器，无需额外配置，开箱即用。
+- 本地开发推荐自建芋道 ruoyi 项目进行接口对接。
+如无需本地配置，可直接体验：
+项目默认对接了我的测试服务器，无需额外配置，开箱即用。
 
-## 项目结构说明
+## 项目结构说明monorepo
+[turboRepo官网学习案例](https://turborepo.com/docs/getting-started/installation)
+启动仓库将包含：
+
+- 两个可部署的应用程序
+- 三个共享库用于在单仓库的其余部分使用
+
+
+
+
+### 目录简单说明
+├── apps
+│   ├── admin-antd
+│   └── admin-shadcn-nextjs
+├── package.json
+├── packages
+│   ├── dev-server
+│   ├── docs
+│   ├── eslint-config
+│   ├── my-website
+│   ├── typescript-config
+│   └── ui
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── README.md
+└── turbo.json
+
+### 目录详细说明
+├── apps
+│   ├── admin-antd
+│   │   ├── eslint.config.js
+│   │   ├── index.html
+│   │   ├── package.json
+│   │   ├── plugins
+│   │   ├── public
+│   │   ├── README.md
+│   │   ├── report.html
+│   │   ├── rsbuild.config.ts
+│   │   ├── src
+│   │   ├── tasks.json
+│   │   ├── tsconfig.json
+│   │   ├── tsconfig.node.json
+│   │   ├── tsconfig.node.tsbuildinfo
+│   │   ├── vite.config.d.ts
+│   │   ├── vite.config.ts
+│   │   └── yarn.lock
+│   └── admin-shadcn-nextjs
+│       ├── components.json
+│       ├── ecosystem.config.js
+│       ├── next-env.d.ts
+│       ├── next.config.ts
+│       ├── package.json
+│       ├── postcss.config.mjs
+│       ├── public
+│       ├── README.md
+│       ├── src
+│       ├── start-pm2.sh
+│       └── tsconfig.json
+├── package.json
+├── packages
+│   ├── dev-server
+│   │   ├── logs
+│   │   ├── nodemon.json
+│   │   ├── package.json
+│   │   ├── pm2.json
+│   │   ├── scripts
+│   │   ├── src
+│   │   └── tsconfig.json
+│   ├── docs
+│   │   ├── babel.config.js
+│   │   ├── blog
+│   │   ├── build
+│   │   ├── docs
+│   │   ├── docusaurus.config.ts
+│   │   ├── package.json
+│   │   ├── plugins
+│   │   ├── README.md
+│   │   ├── sidebars.ts
+│   │   ├── src
+│   │   ├── static
+│   │   ├── tsconfig.json
+│   │   └── yarn.lock
+│   ├── eslint-config
+│   │   ├── base.js
+│   │   ├── next.js
+│   │   ├── package.json
+│   │   ├── react-internal.js
+│   │   └── README.md
+│   ├── my-website
+│   │   ├── blog
+│   │   ├── build
+│   │   ├── docs
+│   │   ├── docusaurus.config.ts
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   ├── sidebars.ts
+│   │   ├── src
+│   │   ├── static
+│   │   └── tsconfig.json
+│   ├── typescript-config
+│   │   ├── base.json
+│   │   ├── nextjs.json
+│   │   ├── package.json
+│   │   └── react-library.json
+│   └── ui
+│       ├── eslint.config.mjs
+│       ├── package.json
+│       ├── src
+│       └── tsconfig.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── README.md
+└── turbo.json
 
 本项目采用 turborepo 管理 monorepo，结构清晰，易于扩展和维护：
 
