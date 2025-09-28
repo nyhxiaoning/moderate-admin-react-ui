@@ -17,11 +17,6 @@
 
 </div>
 
----
-
-[English Version (Switch to English)](./README.en-US.md)
-
----
 
 
 
@@ -80,7 +75,17 @@
 
 
 
+
 ## ruoyi-pro 核心功能对接
+项目代码地址：
+
+### nestjs代码
+https://gitee.com/node-project-summary/nest-admin-ruoyi
+
+### java代码
+https://gitee.com/classic-case-project/RuoYi-Cloud
+
+
 
 ### 用户管理
 
