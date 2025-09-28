@@ -82,12 +82,31 @@
 ### nestjs代码
 https://gitee.com/node-project-summary/nest-admin-ruoyi
 
+分支：feature/template_dev
+
 ### java代码
 https://gitee.com/classic-case-project/RuoYi-Cloud
 
 
 
+
 ### 用户管理
+测试一下创建用户：
+访问：http://localhost:8080/swagger-ui/
+{
+  "deptId": 101,
+  "email": "jane.doe@example.com",
+  "nickName": "Jane",
+  "userName": "jane_doe",
+  "password": "P@ssw0rd123456",
+  "phonenumber": "13800138000",
+  "postIds": ["11", "12"],
+  "roleIds": ["1", "2"],
+  "status": "1",
+  "sex": "0",
+  "remark": "新入职的测试用户，用于接口联调",
+  "postSort": 1
+}
 
 ![图片描述](./_assets/user.png)
 
