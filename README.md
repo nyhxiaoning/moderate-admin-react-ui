@@ -123,7 +123,21 @@ pnpm run start
 - 两个可部署的应用程序
 - 三个共享库用于在单仓库的其余部分使用
 
+### 默认根目录启动turbo run dev
 
+```
+当 turbo run dev 不带 --filter 时，Turborepo 会默认对所有包含 dev 脚本的项目执行该任务（包括 apps 和 packages 下所有定义了 dev 脚本的子项目）。
+
+比如：
+如果 apps/web/package.json 有 "dev": "next dev"
+同时 packages/ui/package.json 有 "dev": "storybook dev"
+那么在根目录运行 turbo run dev 时，这两个项目都会被启动（因为它们都有 dev 脚本）。
+
+
+
+
+
+```
 
 
 ### 目录简单说明
