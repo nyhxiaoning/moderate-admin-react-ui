@@ -13,7 +13,9 @@ const nextConfig: NextConfig = {
       {
         // 若依的后端接口
         source: "/admin-api/:path*",
-        destination: "http://111.229.110.163:48080/admin-api/:path*",
+        // destination: "http://111.229.110.163:48080/admin-api/:path*",
+        // 尝试一下：nestjs地址： https://gitee.com/node-project-summary/nest-admin-ruoyi.git
+        destination: "http://localhost:8080/admin-api/:path*",
       },
     ];
   },

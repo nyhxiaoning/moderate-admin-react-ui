@@ -24,6 +24,11 @@ const api = {
         getRefreshToken(),
     });
   },
+  /**
+   *
+   * @returns
+   * @description 获取滑块验证码
+   */
   captchaApi() {
     return http.post<any>({
       url: "/admin-api/system/captcha/get",
