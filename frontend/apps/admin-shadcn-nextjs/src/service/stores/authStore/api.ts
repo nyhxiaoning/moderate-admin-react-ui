@@ -26,7 +26,8 @@ const api = {
   },
   captchaApi() {
     return http.post<any>({
-      url: "/admin-api/system/captcha/get",
+      // url: "/admin-api/system/captcha/get",
+      url: "/admin-api/system/captcha",
       data: {
         captchaType: "blockPuzzle",
       },
@@ -55,7 +56,7 @@ const api = {
     });
   },
 
- 
+
 
   //获取滑块图片
   getImageUrlApi() {

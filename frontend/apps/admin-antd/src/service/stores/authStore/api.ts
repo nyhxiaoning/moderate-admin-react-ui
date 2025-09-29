@@ -25,13 +25,16 @@ const api = {
     });
   },
   /**
-   *
+   * nestjs中，路由放入白名单监听一下
    * @returns
    * @description 获取滑块验证码
    */
   captchaApi() {
+    // TODO: 先返回成功，后端还没做好，后端完成后注释掉这行代码
+    return 200;
     return http.post<any>({
-      url: "/admin-api/system/captcha/get",
+      // url: "/admin-api/system/captcha/get",
+      url: "/admin-api/system/captcha",
       data: {
         captchaType: "blockPuzzle",
       },

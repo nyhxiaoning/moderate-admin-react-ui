@@ -11,11 +11,17 @@ const LoginForm = () => {
   const [form] = Form.useForm();
   const { loginAct, getIdByNameAct, captchaAct } = useFlat("authStore");
   const [loading, setLoading] = useState(false);
+
+
   const onFinish = async (values: { name: string; password: string }) => {
-    await captchaAct();
-    await getIdByNameAct({
+    debugger
+    let res1 = await captchaAct();
+    console.log(res1, "res1");
+    debugger
+    let res2 = await getIdByNameAct({
       tenantName: "芋道源码",
     });
+    console.log(res2, "res2");
     setLoading(true);
     await loginAct({
       username: values.name,
@@ -65,14 +71,13 @@ const LoginForm = () => {
           ]}
         >
           <Input
-            style={{
-              height: "53px",
-            }}
+            style={{ height: "53px" }}
             variant="filled"
-            placeholder={"请输入用户名(测试账号：admin)"}
+            placeholder="请输入用户名(测试账号：admin)"
           />
         </Form.Item>
 
+        {/* 密码 */}
         <Form.Item
           label=""
           name="password"
@@ -127,5 +132,6 @@ const LoginForm = () => {
     </Fragment>
   );
 };
+
 
 export default LoginForm;
