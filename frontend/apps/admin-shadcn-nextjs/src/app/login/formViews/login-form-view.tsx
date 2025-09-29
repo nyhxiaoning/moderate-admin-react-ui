@@ -35,14 +35,29 @@ export function LoginFormView({
   const onSubmit = form.handleSubmit(async () => {
     const values = form.getValues();
     try {
+      // 这里利用redux-easy，登录后，存储
+      // 相关token信息
+      // {
+      //   "code": 0,
+      //     "data": {
+      //     "userId": 1,
+      //       "accessToken": "aaafd43a86fa4590821e10eeef8edb1d",
+      //         "refreshToken": "9bd85aba0833474b9ce3136fc2a68a60",
+      //           "expiresTime": 1759114343101
+      //   },
+      //   "msg": ""
+      // }
       await captchaAct();
-      await getIdByNameAct({
-        tenantName: "芋道源码",
-      });
+      // 调用租户信息，目前没用
+      // {"code":0,"data":1,"msg":""}
+      // await getIdByNameAct({
+      //   tenantName: "芋道源码",
+      // });
       loginAct({
         username: values.username,
         password: values.password,
       });
+
     } catch (error) {
       console.log("Login error:", error);
     }

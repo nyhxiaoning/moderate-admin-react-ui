@@ -1,6 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // 允许接口可以
+  allowedDevOrigins: [
+    "http://172.16.31.189:3000",
+    "http://localhost:3000",
+    "http://172.16.31.189:3002",
+    "http://localhost:3002",
+    "http://localhost:8080",
+    "http://172.16.31.189:8080",
+  ],
+
   // serverExternalPackages: ["@mastra/*"],
   /* config options here */
   typescript: {

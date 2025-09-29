@@ -30,11 +30,38 @@ const api = {
    * @description 获取滑块验证码
    */
   captchaApi() {
+    debugger;
     // TODO: 先返回成功，后端还没做好，后端完成后注释掉这行代码
-    return 200;
+    return Promise.resolve({
+      repCode: "0000",
+      repMsg: null,
+      repData: {
+        captchaId: null,
+        projectCode: null,
+        captchaType: null,
+        captchaOriginalPath: null,
+        captchaFontType: null,
+        captchaFontSize: null,
+        secretKey: "H4ih3Zwdo8um7Rya",
+        originalImageBase64: "",
+        point: null,
+        jigsawImageBase64: "",
+        wordList: null,
+        pointList: null,
+        pointJson: null,
+        token: "3f0cf376462942539485249b1e704e2a",
+        result: false,
+        captchaVerification: null,
+        clientUid: null,
+        ts: null,
+        browserInfo: null,
+      },
+      success: true,
+    });
+
     return http.post<any>({
       // url: "/admin-api/system/captcha/get",
-      url: "/admin-api/system/captcha",
+      url: "/admin-api/system/captcha/get",
       data: {
         captchaType: "blockPuzzle",
       },

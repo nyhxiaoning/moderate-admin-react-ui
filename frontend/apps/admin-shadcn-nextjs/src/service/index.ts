@@ -46,7 +46,15 @@ if (typeof window !== "undefined") {
 export const useResetRedux = resetReduxHookCreater(stores);
 export const useFlat = flatInjectHookCreater(stores, reduxStore);
 /* utils */
+/**
+ * 直接获取redux中的状态
+ */
 export const dp = getDp(reduxStore, stores);
+/**
+ * 直接获取redux中的状态
+ * 支持分支获取，如：getDpChain("authStore", "userInfo")
+ * 支持分支获取，如：getDpChain("authStore", "userInfo")
+ */
 export const dpChain = getDpChain(reduxStore, stores);
 
 export const getStore = <
