@@ -2,8 +2,9 @@
   "name": "my-turborepo",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
     "dev": "turbo run dev",
+    "build": "turbo run build",
+    "script:dev": "node scripts/dev-with-nvm.mjs",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
