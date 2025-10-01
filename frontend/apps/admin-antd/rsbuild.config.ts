@@ -20,11 +20,12 @@ export default defineConfig({
         target: "http://localhost:8681",
         pathRewrite: { "^/devApi": "" },
       },
-      // 若依的后端接口
+      // 若依的后端接口:将接口的地址：admin-api/system/auth，替换带
       "/admin-api": {
-        // target: "http://111.229.110.163:48080",
+        target: "http://111.229.110.163:48080",
         // 尝试一下：nestjs地址： https://gitee.com/node-project-summary/nest-admin-ruoyi.git
-        target: "http://localhost:8080",
+        // target: "http://localhost:8080",
+        // pathRewrite: (p) => p.replace(/^\/admin-api/, ""),
         // target: "http://127.0.0.1:48080",
       },
     },

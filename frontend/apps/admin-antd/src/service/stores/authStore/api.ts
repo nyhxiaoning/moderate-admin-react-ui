@@ -67,6 +67,11 @@ const api = {
       },
     });
   },
+  /**
+   * 查询当前所属的tenant租户，这个可以暂时不调用
+   * @param data
+   * @returns
+   */
   getIdByNameApi(data: GetIdByNameApiReq) {
     return http.get<any>({
       url: "/admin-api/system/tenant/get-id-by-name?name=" + data.tenantName,
@@ -74,7 +79,8 @@ const api = {
   },
   loginApi(data: LoginApiReq) {
     return http.post<LoginApiRes>({
-      url: "/admin-api/system/auth/login",
+      // url: "/admin-api/login",
+      url: "/admin-api/auth/login",
       data,
     });
   },

@@ -10,6 +10,7 @@ import {
 } from "./model";
 
 const thunks = createThunks("authStore", {
+  // 如果看远程加载，这里打开
   getIdByNameAct: async (arg: GetIdByNameApiReq) => {
     await httpApi.getIdByNameApi(arg);
   },

@@ -91,6 +91,8 @@ export interface MenuItemData {
 
 // 接口参数
 export interface LoginApiReq {
+  // 默认是0，表示有验证码，如果是1，表示没有
+  captchaId?: string;
   password: string;
   rememberMe: boolean;
   tenantName?: string;

@@ -38,9 +38,10 @@ const user = {
 			const username = userInfo.username.trim();
 			const password = userInfo.password;
 			const code = userInfo.code;
-			const uuid = userInfo.uuid;
+			console.log(userInfo, 'userInfo');
+			const captchaId = userInfo.captchaId;
 			return new Promise((resolve, reject) => {
-				login(username, password, code, uuid)
+				login(username, password, code, captchaId)
 					.then((res) => {
 						setToken(res.data.token);
 						commit('SET_TOKEN', res.data.token);

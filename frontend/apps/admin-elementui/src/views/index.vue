@@ -15,6 +15,8 @@
 				<p>
 					<el-button type="primary" size="mini" icon="el-icon-cloudy" plain
 						@click="goTarget('https://gitee.com/tao-zhi/nest-admin')">访问码云</el-button>
+					<el-button type="primary" size="mini" icon="el-icon-cloudy" plain
+						@click="goTarget('http://127.0.0.1:8080/swagger-ui')">访问swagger-ui</el-button>
 					<el-button size="mini" icon="el-icon-s-home" plain
 						@click="goTarget('https://nest-admin.dooring.vip/prod-api/swagger-ui')">访问文档</el-button>
 				</p>
