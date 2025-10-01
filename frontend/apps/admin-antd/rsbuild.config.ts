@@ -22,9 +22,9 @@ export default defineConfig({
       },
       // 若依的后端接口
       "/admin-api": {
-        // target: "http://111.229.110.163:48080",
+        target: "http://111.229.110.163:48080",
         // 尝试一下：nestjs地址： https://gitee.com/node-project-summary/nest-admin-ruoyi.git
-        target: "http://localhost:8080",
+        // target: "http://localhost:8080",
         // target: "http://127.0.0.1:48080",
       },
     },
