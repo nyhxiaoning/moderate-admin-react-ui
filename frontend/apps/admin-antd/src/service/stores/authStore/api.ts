@@ -14,6 +14,11 @@ import {
 const baseUrl = "/admin-api/system";
 
 const api = {
+  /**
+   * token刷新，这里nestjs后台没有对接
+   * @returns
+   * @description 刷新token
+   */
   refreshToken() {
     return http.post<{
       refreshToken: string;
@@ -77,10 +82,10 @@ const api = {
       url: "/admin-api/system/tenant/get-id-by-name?name=" + data.tenantName,
     });
   },
-  loginApi(data: LoginApiReq) {
-    return http.post<LoginApiRes>({
-      // url: "/admin-api/login",
-      url: "/admin-api/auth/login",
+   async loginApi(data: LoginApiReq) {
+    return await http.post<LoginApiRes>({
+      url: "/admin-api/login",
+      // url: "/admin-api/auth/login",
       data,
     });
   },
@@ -139,9 +144,14 @@ const api = {
       },
     });
   },
+  /**
+   * 创建菜单
+   * @param data
+   * @returns
+   */
   createMenuApi(data: Partial<UpdateMenuApiReq>) {
     return http.post({
-      url: "/admin-api/system/menu/create",
+      url: "/admin-api/system/menu",
       data: {
         ...data,
       },

@@ -12,23 +12,32 @@
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input v-model="registerForm.model.password" type="password" size="large" auto-complete="off" placeholder="密码" @keyup.enter="handleRegister">
+        <el-input v-model="registerForm.model.password" type="password" size="large" auto-complete="off"
+          placeholder="密码" @keyup.enter="handleRegister">
           <template #prefix><svg-icon icon-class="password" class="el-input__icon input-icon" /></template>
         </el-input>
       </el-form-item>
       <el-form-item prop="confirmPassword">
-        <el-input v-model="registerForm.model.confirmPassword" type="password" size="large" auto-complete="off" placeholder="确认密码" @keyup.enter="handleRegister">
+        <el-input v-model="registerForm.model.confirmPassword" type="password" size="large" auto-complete="off"
+          placeholder="确认密码" @keyup.enter="handleRegister">
           <template #prefix><svg-icon icon-class="password" class="el-input__icon input-icon" /></template>
         </el-input>
       </el-form-item>
       <el-form-item prop="code" v-if="authCodeInfo.captchaEnabled">
-        <el-input size="large" v-model="registerForm.model.code" auto-complete="off" placeholder="验证码" style="width: 63%" @keyup.enter="handleRegister">
+        <el-input size="large" v-model="registerForm.model.code" auto-complete="off" placeholder="验证码"
+          style="width: 63%" @keyup.enter="handleRegister">
           <template #prefix><svg-icon icon-class="validCode" class="el-input__icon input-icon" /></template>
         </el-input>
-        <div class="register-code" v-html="authCodeInfo.imgUrl" @click="useAuthCode.getValidateCode(registerForm.model, true)"></div>
+        <div class="register-code" style="padding-left: 10px;"
+          @click="useAuthCode.getValidateCode(loginForm.model, true)">
+          <img class="login-code" :src="authCodeInfo.imgUrl" alt="" />
+        </div>
+        <!-- <div class="register-code" v-html="authCodeInfo.imgUrl"
+          @click="useAuthCode.getValidateCode(registerForm.model, true)"></div> -->
       </el-form-item>
       <el-form-item style="width: 100%">
-        <el-button :loading="authCodeInfo.loading" size="large" type="primary" style="width: 100%" @click="handleRegister">
+        <el-button :loading="authCodeInfo.loading" size="large" type="primary" style="width: 100%"
+          @click="handleRegister">
           <span v-if="!authCodeInfo.loading">注 册</span>
           <span v-else>注 册 中...</span>
         </el-button>

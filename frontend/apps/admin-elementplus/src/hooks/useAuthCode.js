@@ -51,6 +51,8 @@ const getValidateCode = async (form, isClick) => {
   }
 }
 
+// 这里使用cookie存储信息，这里的不太安全，
+// 预计升级为使用sessionStorage存储信息，jwt存储信息
 // 从cookie中获取登录用户信息
 const getUserCookie = (data) => {
   const userName = Cookies.get('userName')

@@ -6,7 +6,7 @@ const useUserStore = defineStore(
   'user',
   {
     state: () => ({
-      token: getToken(),
+      token: getToken() || sessionStorage.getItem('token') || '',
       name: '',
       avatar: '',
       roles: [],
@@ -23,7 +23,8 @@ const useUserStore = defineStore(
         return new Promise((resolve, reject) => {
           login(username, password, code, captchaId)
             .then((res) => {
-              setToken(res.data.token)
+              // setToken(res.data.token)
+              sessionStorage.setItem('token', res.data.token)
               this.token = res.data.token
               resolve()
             })

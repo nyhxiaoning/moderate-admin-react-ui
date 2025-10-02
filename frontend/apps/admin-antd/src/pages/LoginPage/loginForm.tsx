@@ -1,6 +1,5 @@
 import { Button, Form, Input, Typography, message } from "antd";
 import { Fragment, useState } from "react";
-import storageHelper from "src/common/utils/storageHelper";
 import { useFlat } from "src/service";
 import { useNavigate } from "react-router-dom";
 
@@ -36,10 +35,14 @@ const LoginForm = () => {
       // tenantName: "henry租户",
       tenantName: "芋道源码",
     })
-      .then(() => {
+      .then((res) => {
+        // 存储token
+        console.log(res, "res.data");
+        //  storageHelper.setItem("ACCESS_TOKEN",res);
+        // storageHelper.setItem("TOKEN", res);
         // storageHelper.setItem("BTN_CON", "点击获取验证码");
         // storageHelper.setItem("BTN_TIME", 60);
-        alert("登录成功");
+        // alert("登录成功");
         // 跳转路由：HomePage
         navigate("/HomePage");
       })

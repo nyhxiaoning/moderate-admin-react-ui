@@ -6,12 +6,26 @@ type TokenType = any;
 const { wsCache } = useCache("sessionStorage");
 
 const AccessTokenKey = "ACCESS_TOKEN";
+const currentToken = 'token'
 const RefreshTokenKey = "REFRESH_TOKEN";
+
+
+export const getLocalToken = (token:string) => {
+  const currentToken = sessionStorage.getItem(token);
+  console.log("getLocalToken", currentToken);
+  if (currentToken) {
+    return currentToken;
+  }
+}
 
 // 获取token
 export const getAccessToken = () => {
   // 此处与TokenKey相同，此写法解决初始化时Cookies中不存在TokenKey报错
-  const accessToken = wsCache.get(AccessTokenKey);
+  // const accessToken = wsCache.get(AccessTokenKey);
+  const accessToken = getLocalToken(currentToken);
+  console.log("getAccessToken", accessToken);
+  // 这里一换，下面的内容，就会出现问题。
+  // const accessToken = localStorage.get("ACCESS_TOKEN");
   return accessToken ? accessToken : wsCache.get("ACCESS_TOKEN");
 };
 

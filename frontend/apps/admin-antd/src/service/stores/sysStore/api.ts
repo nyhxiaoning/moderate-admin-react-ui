@@ -16,15 +16,25 @@ import {
 } from "./model";
 
 const devApi = {
+  /**
+   * 获取当前的用户信息内容
+   * @param data
+   * @returns
+   */
   queryUserListApi(data: Partial<QueryUserListApiReq>) {
     return http.get<QueryUserListApiRes>({
       url: "/admin-api/system/user/page",
       params: data,
     });
   },
-  queryDeptListApi() {
+  queryDeptSimpleListApi() {
     return http.get<QueryDeptListApiRes>({
       url: "/admin-api/system/dept/simple-list",
+    });
+  },
+  queryDeptListApi() {
+    return http.get<QueryDeptListApiRes>({
+      url: "/admin-api/system/dept/list",
     });
   },
   updateUserApi(data: Partial<User>) {
@@ -45,6 +55,11 @@ const devApi = {
       params,
     });
   },
+
+  /**
+   * 新增岗位
+   * @returns 岗位列表
+   */
   queryPostListApi() {
     return http.get<QueryPostListApiRes>({
       url: "/admin-api/system/post/simple-list",

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env PORT=8681 nodemon",
+    "dev1": "cross-env PORT=8681 nodemon",
     "build": "rimraf dist && tsc --sourceMap",
     "start": "npm run build&&npm run copyViews && cross-env PORT=8681 node -r tsconfig-paths/register ./dist/main",
     "prd": "pm2 start pm2.json --only my-app",

@@ -60,15 +60,18 @@ const ModalForm = () => {
           .then((values) => {
             const { componentName, sort, type, name, parentId, status } =
               values;
+            console.log(parentId, "parentId-parentId");
+            const parentIdNum = Number(parentId);
             const api = modalType == "edit" ? updateMenuAct : createMenuAct;
             api({
               ...currentEditMenuData,
               componentName: componentName || "",
+              menuName: name,
               path: componentName,
               sort,
               type: Number(type),
               name,
-              parentId,
+              parentId: parentIdNum,
               status,
             });
             notification.success({

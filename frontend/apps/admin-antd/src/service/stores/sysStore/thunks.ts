@@ -42,7 +42,7 @@ const thunks = createThunks("sysStore", {
    * @param payload
    */
   async queryRoleListAct(payload: Partial<QueryRoleListApiReq>) {
-    debugger
+    debugger;
     // const { data: { list = [], total = 0 } = {} } =
     //   await api.queryRoleListApi(payload);
     const { data: { list = [], total = 0 } = {} } = {
@@ -122,9 +122,9 @@ const thunks = createThunks("sysStore", {
           },
         ],
         total: 6,
-      }
+      },
     };
-    debugger
+    debugger;
     dpChain("sysStore").setRoleList({
       list: list,
       total,
@@ -145,7 +145,11 @@ const thunks = createThunks("sysStore", {
   async createRoleAct(data: Partial<Role>) {
     await api.createRoleApi(data);
   },
+  /**
+   * 获取部门列表内容
+   */
   async queryDeptListAct() {
+    debugger;
     const { data } = await api.queryDeptListApi();
     dpChain("sysStore").setDeptList(data);
   },

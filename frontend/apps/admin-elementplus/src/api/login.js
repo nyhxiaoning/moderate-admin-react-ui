@@ -60,10 +60,11 @@ export function getCodeImg() {
 
 export function getGenerateCodeImg() {
   return request({
+    // 注意看所有的路由配置
     url: '/captcha/generate',
-    headers: {
-      isToken: false
-    },
+    // headers: {
+    //   isToken: false
+    // },
     method: 'get',
     timeout: 20000
   })

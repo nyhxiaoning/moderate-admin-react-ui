@@ -113,6 +113,7 @@ export interface GetIdByNameApiReq {
 export interface UpdateMenuApiReq {
   alwaysShow: boolean;
   component: string;
+  menuName?: string;
   componentName: string;
   createTime: number;
   icon: string;

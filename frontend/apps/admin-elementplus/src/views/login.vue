@@ -30,7 +30,7 @@
             <svg-icon icon-class="validCode" class="input-icon" />
           </template>
         </el-input>
-        <div style="padding-left: 10px;" @click="useAuthCode.getValidateCode(loginForm.model, true)">
+        <div style="padding-left: 10px;" @click="getCaptchaCode">
           <img class="login-code" :src="authCodeInfo.imgUrl" alt="" />
         </div>
       </el-form-item>
@@ -40,8 +40,8 @@
 
       <div class="login-tips">
         <el-checkbox v-model="loginForm.model.rememberMe" style="margin: 0px 0px 25px 0px">记住密码</el-checkbox>
-        <el-link v-if="showRegisterUser" class="login-tips-link" type="primary" href="/register"
-          target="_blank">去注册账号</el-link>
+        <!-- 默认开启：v-if="showRegisterUser" -->
+        <el-link class="login-tips-link" type="primary" href="/register" target="_blank">去注册账号</el-link>
       </div>
 
       <el-form-item style="width: 100%">
@@ -117,7 +117,10 @@ function handleLogin() {
       userStore
         .login(loginForm.model)
         .then(() => {
-          router.push({ path: redirect.value || '/' })
+          router.push({ path: redirect.value || '/index' })
+          // router.push({ path: '/index' })
+          // 登录成功了
+
         })
         .catch(() => {
           // 重新获取验证码
@@ -131,10 +134,17 @@ function handleLogin() {
     }
   })
 }
+// 点击之后，获取验证码
+function getCaptchaCode(){
+
+  useAuthCode.getValidateCode(loginForm.model, false)
+
+}
 
 
 // // 初始化验证码
 useAuthCode.getValidateCode(loginForm.model, false)
+// 注册用户功能是否开启
 // getRegisterUserAllow()
 loginForm.model = useAuthCode.getUserCookie(loginForm.model)
 </script>

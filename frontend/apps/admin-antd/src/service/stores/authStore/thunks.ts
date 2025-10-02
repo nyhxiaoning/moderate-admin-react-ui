@@ -8,6 +8,7 @@ import {
   MenuPermissionItem,
   UpdateMenuApiReq,
 } from "./model";
+import storageHelper from "src/common/utils/storageHelper";
 
 const thunks = createThunks("authStore", {
   // 如果看远程加载，这里打开
@@ -19,12 +20,17 @@ const thunks = createThunks("authStore", {
   },
   loginAct: async (arg: LoginApiReq) => {
     const { data } = await httpApi.loginApi(arg);
-    const { userId, accessToken, refreshToken } = data;
-    userId && dpChain("authStore").setUserid(userId);
-    dpChain("authStore").setToken({
-      accessToken,
-      refreshToken,
-    });
+    console.log("loginAct------", JSON.stringify(data));
+    const currentToken = JSON.parse(JSON.stringify(data)).token;
+    console.log(JSON.parse(JSON.stringify(data)).token, "json.parse.token");
+    // 这里双token实现，没有实现，这里暂时注释
+    // const { userId, accessToken, refreshToken } = data;
+    data && sessionStorage.setItem("token", currentToken);
+    // userId && dpChain("authStore").setUserid(userId);
+    // dpChain("authStore").setToken({
+    //   accessToken,
+    //   refreshToken,
+    // });
   },
   async getMenuListAct() {
     const { data } = await httpApi.getMenuListApi();
