@@ -82,7 +82,7 @@ const api = {
       url: "/admin-api/system/tenant/get-id-by-name?name=" + data.tenantName,
     });
   },
-   async loginApi(data: LoginApiReq) {
+  async loginApi(data: LoginApiReq) {
     return await http.post<LoginApiRes>({
       url: "/admin-api/login",
       // url: "/admin-api/auth/login",
@@ -93,6 +93,12 @@ const api = {
   getPermissionInfoApi() {
     return http.get<LoginApiRes>({
       url: "/admin-api/system/auth/get-permission-info",
+    });
+  },
+  // 获取getRouters权限
+  getRouters() {
+    return http.get({
+      url: "/admin-api/getRouters",
     });
   },
   fetchUserPermissions() {

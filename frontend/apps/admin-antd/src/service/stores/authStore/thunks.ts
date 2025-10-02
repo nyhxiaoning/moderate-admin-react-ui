@@ -44,9 +44,13 @@ const thunks = createThunks("authStore", {
     return data;
   },
   async getUserPermissionsAct() {
+    // const {
+    //   data: { permissions, menus },
+    // } = await httpApi.fetchUserPermissions();
+
     const {
       data: { permissions, menus },
-    } = await httpApi.fetchUserPermissions();
+    } = await httpApi.getRouters();
     const menuTreePermissions = {
       id: -1,
       parentId: -1,

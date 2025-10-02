@@ -36,7 +36,8 @@ const useUserStore = defineStore(
       // 获取用户信息
       getInfo() {
         return new Promise((resolve, reject) => {
-          getInfo().then(res => {
+          getInfo().then(resdata => {
+            const res = resdata.data
             const user = res.user
             const avatar = (user.avatar == "" || user.avatar == null) ? defAva : import.meta.env.VITE_APP_BASE_API + user.avatar;
 

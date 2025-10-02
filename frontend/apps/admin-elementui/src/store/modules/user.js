@@ -57,7 +57,8 @@ const user = {
 		GetInfo({ commit, state }) {
 			return new Promise((resolve, reject) => {
 				getInfo()
-					.then((res) => {
+					.then((resdata) => {
+						const res = resdata.data;
 						const user = res.user;
 						const avatar =
 							user.avatar == '' || user.avatar == null ? require('@/assets/images/profile.jpg') : process.env.VUE_APP_BASE_API + user.avatar;
