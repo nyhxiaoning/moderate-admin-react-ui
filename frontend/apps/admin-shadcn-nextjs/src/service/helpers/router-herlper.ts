@@ -72,8 +72,9 @@ class RouterHelper extends HelperBase {
     return pathname.startsWith("/dashboard");
   }
   // 通过路由ID跳转
+  // 通过路由ID跳转
   jumpTo(
-    id: ROUTE_ID_KEY | ROUTE_NAME,
+    id: any,
     {
       searchParams,
       hash,
@@ -83,11 +84,49 @@ class RouterHelper extends HelperBase {
     } = {},
   ) {
     const { routeList } = this.getStore("appStore");
-    const targetRoutItem = routeList.find((item) => item.id === id);
+    console.log("id", id);
+
+    // const targetRoutItem = routeList.find((item) => {
+    //   console.log(id.indexOf("role"), "rolerole");
+    //   if (id.indexOf("role") !== -1) {
+    //     return item;
+    //   }
+    //   if (id.indexOf("user") !== -1) {
+    //     return item;
+    //   }
+    //   if (id.indexOf("menu") !== -1) {
+    //     return item;
+    //   }
+
+    //   return item.id === id;
+    // });
+    let targetRoutItem;
+    routeList.forEach((item, index) => {
+      console.log(item, "item", id.indexOf("role"), "role", index);
+      if (id.indexOf(item.id) !== -1) {
+        console.log(item, "item");
+        targetRoutItem = item;
+        return item;
+      }
+      // if (id.indexOf(item.id) !== -1) {
+      //   console.log(item, "item");
+
+      //   targetRoutItem = item;
+      //   return routeList[index];
+      // }
+      // if (id.indexOf("menu") !== -1) {
+      //   console.log(item, "item");
+
+      //    targetRoutItem = item;
+      //   return routeList[index];
+      // }
+    });
+
+    console.log(routeList, "routeList");
 
     if (targetRoutItem) {
       // 不直接修改 path，防止副作用
-      let url = targetRoutItem.path;
+      let url = targetRoutItem?.path;
 
       // 拼接 searchParams
       if (searchParams && Object.keys(searchParams).length > 0) {
