@@ -80,7 +80,11 @@ const devApi = {
   queryRoleListApi(data: Partial<QueryRoleListApiReq>) {
     return http.get<QueryRoleListApiRes>({
       url: `/admin-api/system/role/page`,
-      params: data,
+      params: {
+        pageNum:10,
+        pageSize:10,
+        ...data,
+      },
     });
   },
 
@@ -140,6 +144,10 @@ const devApi = {
   listRoleApi() {
     return http.get<Role[]>({
       url: `/admin-api/system/role/list`,
+      params: {
+        pageNum: '1',
+        pageSize: 10,
+      }
     });
   },
 

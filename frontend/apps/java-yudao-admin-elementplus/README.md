@@ -1,7 +1,17 @@
-**严肃声明：现在、未来都不会有商业版本，所有代码全部开源!！**
+# 特别说明：
+这里的前端代码，其他的仓库对应nestjsruoyi：，对应java的后端代码：[
+    对应内容：feature/dev
+](https://gitee.com/overseas_lessons/yudao-cloud.git)
 
-**「我喜欢写代码，乐此不疲」**  
-**「我喜欢做开源，以此为乐」**
+## nestjs代码后端：
+https://gitee.com/node-project-summary/nest-admin-ruoyi.git
+- 分支：feature-add-jwt-nestcli
+
+## java后端代码
+(https://gitee.com/overseas_lessons/yudao-cloud.git)
+- 分支：feature/dev
+
+
 
 我 🐶 在上海艰苦奋斗，早中晚在 top3 大厂认真搬砖，夜里为开源做贡献。
 

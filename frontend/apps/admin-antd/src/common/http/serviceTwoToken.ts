@@ -47,6 +47,7 @@ const whiteList: string[] = [
   "/system/menu",
   "/system/dep/simple-list",
   "/system/user/page",
+  "/system/role/page",
 ];
 
 // 创建axios实例

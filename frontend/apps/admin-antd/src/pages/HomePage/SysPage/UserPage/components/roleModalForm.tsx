@@ -18,7 +18,8 @@ const RoleModalForm = () => {
   } = useFlat("sysStore");
   const [form] = Form.useForm<User>();
   useEffect(() => {
-    listRoleAct();
+    console.log("listRoleAct", listRoleAct,'故意不调用');
+    // listRoleAct();
   }, []);
   useEffect(() => {
     if (currentUser) {
