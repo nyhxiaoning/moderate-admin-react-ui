@@ -101,12 +101,21 @@ const api = {
       url: "/admin-api/getRouters",
     });
   },
+  // 获取 getInfo 权限
+  getInfo() {
+    return http.get({
+      url: "/admin-api/getInfo",
+    });
+  },
+  // 获取用户权限信息，生成菜单权限+列表展示
+  // 这里的数据结构：getInfo+menu/list
   fetchUserPermissions() {
     return http.get<{ permissions: any; menus: MenuPermissionItem[] }>({
       url: baseUrl + "/auth/get-permission-info",
     });
   },
 
+  // 获取菜单列表
   getMenuListApi() {
     return http.get<MenuItemData[]>({
       url: "/admin-api/system/menu/list",

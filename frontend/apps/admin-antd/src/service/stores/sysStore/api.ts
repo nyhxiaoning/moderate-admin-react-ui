@@ -139,6 +139,12 @@ const devApi = {
   // /admin-api/system/role/simple-list
   listRoleApi() {
     return http.get<Role[]>({
+      url: `/admin-api/system/role/list`,
+    });
+  },
+
+  listSimpleRoleApi() {
+    return http.get<Role[]>({
       url: `/admin-api/system/role/simple-list`,
     });
   },

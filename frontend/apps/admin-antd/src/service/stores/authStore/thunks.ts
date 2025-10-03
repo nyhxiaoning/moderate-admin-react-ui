@@ -32,6 +32,10 @@ const thunks = createThunks("authStore", {
     //   refreshToken,
     // });
   },
+  /**
+   * 获取菜单列表
+   * @returns void
+   */
   async getMenuListAct() {
     const { data } = await httpApi.getMenuListApi();
     const treeData = authHelper.handleTree(data);
@@ -49,14 +53,85 @@ const thunks = createThunks("authStore", {
     // } = await httpApi.fetchUserPermissions();
 
     const {
-      data: { permissions, menus },
-    } = await httpApi.getRouters();
+      data: { permissions },
+    } = await httpApi.getInfo();
+
+      // TODO:这里的内容：配置一下当前的数据权限接口，目前这里暂时不考虑。
+      // TODO:这里的内容：配置一下当前的数据权限接口，目前这里暂时不考虑。
+      // TODO:这里的内容：配置一下当前的数据权限接口，目前这里暂时不考虑。
+      // TODO:这里的内容：配置一下当前的数据权限接口，目前这里暂时不考虑。
+      // TODO:这里的内容：配置一下当前的数据权限接口，目前这里暂时不考虑。
+      // TODO:这里的内容：配置一下当前的数据权限接口，目前这里暂时不考虑。
+      // TODO:这里的内容：配置一下当前的数据权限接口，目前这里暂时不考虑。
+      // TODO:这里的内容：配置一下当前的数据权限接口，目前这里暂时不考虑。
+
+    const menuDatas = await httpApi.getMenuListApi();
+    console.log(menuDatas.data, "---------------menuDatas");
+
+    // const menus = menuDatas.data;
+    // Mock 菜单数据
+     const mockMenuPermissions: any = {
+      id: 1,
+      parentId: 0,
+      name: "系统管理",
+      path: "/system",
+      component: "Layout",
+      componentName: "SystemLayout", // ROUTE_ID_KEY 类型值
+      icon: "SettingOutlined",
+      visible: true,
+      keepAlive: true,
+      alwaysShow: true,
+      children: [
+        {
+          id: 11,
+          parentId: 1,
+          name: "用户管理",
+          path: "/system/user",
+          component: "system/user/index",
+          componentName: "UserPage",
+          icon: "UserOutlined",
+          visible: true,
+          keepAlive: false,
+          alwaysShow: false,
+          children: [],
+        },
+        {
+          id: 12,
+          parentId: 1,
+          name: "角色管理",
+          path: "/system/role",
+          component: "system/role/index",
+          componentName: "RolePage",
+          icon: "TeamOutlined",
+          visible: true,
+          keepAlive: false,
+          alwaysShow: false,
+          children: [],
+        },
+        {
+          id: 13,
+          parentId: 1,
+          name: "菜单管理",
+          path: "/system/menu",
+          component: "system/menu/index",
+          componentName: "MenuPage",
+          icon: "MenuOutlined",
+          visible: true,
+          keepAlive: false,
+          alwaysShow: false,
+          children: [],
+        },
+      ],
+    };
+
+
+        const menus = mockMenuPermissions;
     const menuTreePermissions = {
       id: -1,
       parentId: -1,
       name: "root",
       children: menus,
-    } as MenuPermissionItem;
+    };
 
     // 需要根据后端的menu权限跟前端的权限结合，生成一个权限数据
     // 生成一个路由数据权限

@@ -15,10 +15,18 @@ const thunks = createThunks("appStore", {
     }
   },
   // 直接根据路由生成菜单 前端主导的逻辑
+  /**
+   * 生成菜单
+   */
   createMenuDataAct: async (_: null, api) => {
     const { menuPermissions, routesPermissions, menuListData, menuTreeData } =
       api.getState().authStore;
     const { routesMap, routesTree } = reduxStore.getState().routerStore;
+    // 生成菜单数据
+    console.log("menuPermissions", menuPermissions);
+    console.log("routesPermissions", routesPermissions);
+    console.log("routesMap", routesMap);
+    console.log("routesTree", routesTree);
     const menuData = appHelper.createMenuData({
       menuPermissions,
       routesPermissions,

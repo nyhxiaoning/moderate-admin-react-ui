@@ -52,6 +52,9 @@ class RouterHelper extends HelperBase {
   // 通过路由ID获取路由配置
   getRouteConfigById(routeId: ROUTE_ID_KEY): RouteItem {
     const { routeList } = this.getStore("appStore");
+    // 从routeList中获取extraData
+    console.log(routeList, routeId);
+    console.log("getRouteConfigById", "getRouteConfigById");
     const extraData = routeList.find((item) => item.id === routeId) || {};
     return { ...ROUTE_CONFIG_MAP[routeId], ...extraData };
   }

@@ -40,7 +40,9 @@ export class AppHelper extends HelperBase {
       routesMap,
       routesTree = [],
     } = params;
-    // 初始化阶段， routesMap和routesTree还没根据权限初始化好，那么就调用RouterHelper获取默认值
+    // TODO:初始化阶段， routesMap和routesTree还没根据权限初始化好，那么就调用RouterHelper获取默认值
+    // TODO:初始化阶段， routesMap和routesTree还没根据权限初始化好，那么就调用RouterHelper获取默认值
+
     if (!routesMap) {
       const {
         routesMapData: routesMapDataTemp,
@@ -52,8 +54,12 @@ export class AppHelper extends HelperBase {
       routesMap = routesMapDataTemp;
       routesTree = routesTreeDataTemp;
     }
+    // 初始化阶段， menuListData还没根据权限初始化好，那么就调用AuthHelper获取默认值
+    // 创建前端权限配置的菜单信息
     let result: MenuItem[] = [];
     // 创建服务端权限配置的菜单信息
+    console.log("menuPermissions---createMenuData", menuPermissions);
+    // menu/list,这里调用一下接口：menu/list
     const { menuData = [] } = menuPermissions
       ? this.createMenuDataLoopByServer(menuPermissions.children, [])
       : {};

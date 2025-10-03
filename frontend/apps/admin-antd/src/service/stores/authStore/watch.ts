@@ -24,7 +24,7 @@ const watch = () => {
     },
     effect: () => {
       dpChain("authStore").getMenuListAct(null);
-      dpChain("authStore").getUserPermissionsAct(null);
+      // dpChain("authStore").getUserPermissionsAct(null);
     },
   });
 

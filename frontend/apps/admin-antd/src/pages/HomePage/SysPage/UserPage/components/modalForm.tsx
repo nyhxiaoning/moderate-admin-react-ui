@@ -17,7 +17,7 @@ const ModalForm = () => {
   } = useFlat("sysStore");
   const [form] = Form.useForm<User>();
   useEffect(() => {
-    queryPostListAct();
+    // queryPostListAct();
   }, []);
   useEffect(() => {
     form.setFieldsValue(currentUser || {});
