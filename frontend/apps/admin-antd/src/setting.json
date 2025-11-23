@@ -2,9 +2,9 @@
   "projectName": "Dland",
   "logo": "/logo.png",
   "icon": "",
-  "paletteSet": { "light": "dland", "dark": "dland" },
-  "layoutSet": { "light": "Wind", "dark": "Wind" },
-  "routerAni": "fade",
+  "paletteSet": { "light": "Default", "dark": "dland" },
+  "layoutSet": { "light": "Rain", "dark": "Wind" },
+  "routerAni": "slide",
   "color": "light",
   "locale": "zh"
 }

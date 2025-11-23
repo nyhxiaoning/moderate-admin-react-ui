@@ -12,8 +12,9 @@ const nextConfig: NextConfig = {
     return [
       {
         // 若依的后端接口
+        // TODO:配置接口nestjs
         source: "/admin-api/:path*",
-        destination: "http://111.229.110.163:48080/admin-api/:path*",
+        destination: "http://localhost:8080/admin-api/:path*",
       },
     ];
   },

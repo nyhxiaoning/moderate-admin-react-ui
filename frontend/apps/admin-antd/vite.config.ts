@@ -58,7 +58,8 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/devApi/, ""),
       },
       "/admin-api": {
-        target: "http://111.229.110.163:123123",
+        // target: "http://111.229.110.163:123123",
+        target: "http://localhost:8080",
         changeOrigin: true, // 允许跨域
       },
     },
