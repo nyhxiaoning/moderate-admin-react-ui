@@ -1,17 +1,18 @@
-import router from './router'
+import 'nprogress/nprogress.css'
+
 import { ElMessage } from 'element-plus'
 import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
 import { getToken } from '@/utils/auth'
 import { isHttp } from '@/utils/validate'
 import { isRelogin } from '@/utils/request'
-import useUserStore from '@/store/modules/user'
-import useSettingsStore from '@/store/modules/settings'
+import router from './router'
 import usePermissionStore from '@/store/modules/permission'
+import useSettingsStore from '@/store/modules/settings'
+import useUserStore from '@/store/modules/user'
 
-NProgress.configure({ showSpinner: false });
+NProgress.configure({ showSpinner: false })
 
-const whiteList = ['/login', '/register'];
+const whiteList = ['/login', '/register']
 
 router.beforeEach((to, from, next) => {
   NProgress.start()
@@ -25,25 +26,49 @@ router.beforeEach((to, from, next) => {
       if (useUserStore().roles.length === 0) {
         isRelogin.show = true
         // 判断当前用户是否已拉取完user_info信息
-        useUserStore().getInfo().then(() => {
-          debugger
-          // 拉取user_infoTODO:
-          isRelogin.show = false
-          usePermissionStore().generateRoutes().then(accessRoutes => {
-            // 根据roles权限生成可访问的路由表
-            accessRoutes.forEach(route => {
-              if (!isHttp(route.path)) {
-                router.addRoute(route) // 动态添加可访问路由表
-              }
-            })
-            next({ ...to, replace: true }) // hack方法 确保addRoutes已完成
+        useUserStore()
+          .getInfo()
+          .then(() => {
+            isRelogin.show = false
+            const userStore = useUserStore()
+            if (!Array.isArray(userStore.permissions)) {
+              userStore.permissions = []
+            }
+            if (!Array.isArray(userStore.roles) || userStore.roles.length === 0) {
+              userStore.roles = ['ROLE_DEFAULT']
+            }
+            usePermissionStore()
+              .generateRoutes()
+              .then((accessRoutes) => {
+                // 根据roles权限生成可访问的路由表
+                accessRoutes.forEach((route) => {
+                  if (!isHttp(route.path)) {
+                    router.addRoute(route) // 动态添加可访问路由表
+                  }
+                })
+                next({ ...to, replace: true }) // hack方法 确保addRoutes已完成
+              })
           })
-        }).catch(err => {
-          useUserStore().logOut().then(() => {
-            ElMessage.error(err)
-            next({ path: '/' })
+          .catch((err) => {
+            isRelogin.show = false
+            const userStore = useUserStore()
+            userStore.roles = ['ROLE_DEFAULT']
+            userStore.permissions = []
+            usePermissionStore()
+              .generateRoutes()
+              .then((accessRoutes) => {
+                accessRoutes.forEach((route) => {
+                  if (!isHttp(route.path)) {
+                    router.addRoute(route)
+                  }
+                })
+                next({ ...to, replace: true })
+              })
+              .catch(() => {
+                ElMessage.error(err)
+                next({ path: '/' })
+              })
           })
-        })
       } else {
         next()
       }

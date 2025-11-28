@@ -47,7 +47,7 @@
       <el-form-item style="width: 100%">
         <el-button :loading="authCodeInfo.loading" size="large" type="primary" style="width: 100%"
           @click.prevent="handleLogin">
-          <span v-if="!authCodeInfo.loading">登 录</span>
+          <span v-if="!authCodeInfo.loading">登 录111</span>
           <span v-else>登 录 中...</span>
         </el-button>
       </el-form-item>
@@ -73,7 +73,7 @@ const showRegisterUser = ref()
 const loginForm = reactive({
   model: {
     username: 'admin',
-    password: '1234546',
+    password: '123456',
     rememberMe: false,
     code: '',
     captchaId: '',

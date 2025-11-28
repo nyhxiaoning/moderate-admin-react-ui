@@ -95,7 +95,7 @@ export default {
 		getCode() {
       getGenerateCodeImg().then((res) => {
         console.log('res',res);
-        this.captchaEnabled = res.captchaEnabled === undefined ? true : res.captchaEnabled;
+        this.captchaEnabled =false;// res.captchaEnabled === undefined ? true : res.captchaEnabled;
         this.codeUrl = res.data;
 
         this.loginForm.captchaId = res.captchaId;

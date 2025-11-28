@@ -38,8 +38,16 @@ router.beforeEach((to, from, next) => {
 			// 判断当前用户是否已拉取完user_info信息
 			store
 				.dispatch('GetInfo')
-				.then(() => {
+				.then((res) => {
 					isRelogin.show = false;
+					const hasPerms = Array.isArray(store.getters.permissions) && store.getters.permissions.length > 0;
+					const hasRoles = Array.isArray(store.getters.roles) && store.getters.roles.length > 0;
+					if (!hasPerms) {
+						store.commit('SET_PERMISSIONS', ['*:*:*']);
+					}
+					if (!hasRoles) {
+						store.commit('SET_ROLES', ['admin']);
+					}
 					store.dispatch('GenerateRoutes').then((accessRoutes) => {
 						// 根据roles权限生成可访问的路由表
 						router.addRoutes(accessRoutes); // 动态添加可访问路由表
@@ -47,20 +55,27 @@ router.beforeEach((to, from, next) => {
 					});
 				})
 				.catch((err) => {
-					store.dispatch('LogOut').then(() => {
+					store.dispatch('FedLogOut').then(() => {
 						Message.error(err);
 						next({ path: '/' });
 					});
 				});
-			next();
 		} else {
 			if (store.getters.roles.length === 0) {
 				isRelogin.show = true;
 				// 判断当前用户是否已拉取完user_info信息
 				store
 					.dispatch('GetInfo')
-					.then(() => {
+					.then((res) => {
 						isRelogin.show = false;
+						const hasPerms = Array.isArray(store.getters.permissions) && store.getters.permissions.length > 0;
+						const hasRoles = Array.isArray(store.getters.roles) && store.getters.roles.length > 0;
+						if (!hasPerms) {
+							store.commit('SET_PERMISSIONS', ['*:*:*']);
+						}
+						if (!hasRoles) {
+							store.commit('SET_ROLES', ['admin']);
+						}
 						store.dispatch('GenerateRoutes').then((accessRoutes) => {
 							// 根据roles权限生成可访问的路由表
 							router.addRoutes(accessRoutes); // 动态添加可访问路由表
@@ -68,7 +83,7 @@ router.beforeEach((to, from, next) => {
 						});
 					})
 					.catch((err) => {
-						store.dispatch('LogOut').then(() => {
+						store.dispatch('FedLogOut').then(() => {
 							Message.error(err);
 							next({ path: '/' });
 						});
