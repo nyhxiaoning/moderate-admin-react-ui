@@ -15,7 +15,9 @@ const useUserStore = defineStore(
     actions: {
       // 登录
       login(userInfo) {
+        // alert(JSON.stringify(userInfo))
         const username = userInfo.username.trim()
+        alert(username)
         const password = userInfo.password
         const code = userInfo.code
         const captchaId = userInfo.uuid;

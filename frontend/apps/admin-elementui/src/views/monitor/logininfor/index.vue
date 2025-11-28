@@ -4,8 +4,8 @@
 			<el-form-item label="登录地址" prop="ipaddr">
 				<el-input v-model="queryParams.ipaddr" placeholder="请输入登录地址" clearable style="width: 240px" @keyup.enter.native="handleQuery" />
 			</el-form-item>
-			<el-form-item label="用户名称" prop="userName">
-				<el-input v-model="queryParams.userName" placeholder="请输入用户名称" clearable style="width: 240px" @keyup.enter.native="handleQuery" />
+			<el-form-item label="用户名称" prop="username">
+				<el-input v-model="queryParams.username" placeholder="请输入用户名称" clearable style="width: 240px" @keyup.enter.native="handleQuery" />
 			</el-form-item>
 			<el-form-item label="状态" prop="status">
 				<el-select v-model="queryParams.status" placeholder="登录状态" clearable style="width: 240px">
@@ -81,7 +81,7 @@
 			<el-table-column
 				label="用户名称"
 				align="center"
-				prop="userName"
+				prop="username"
 				:show-overflow-tooltip="true"
 				sortable="custom"
 				:sort-orders="['descending', 'ascending']"
@@ -143,7 +143,7 @@ export default {
 				pageNum: 1,
 				pageSize: 10,
 				ipaddr: undefined,
-				userName: undefined,
+				username: undefined,
 				status: undefined,
 			},
 		};
@@ -178,7 +178,7 @@ export default {
 			this.ids = selection.map((item) => item.infoId);
 			this.single = selection.length != 1;
 			this.multiple = !selection.length;
-			this.selectName = selection.map((item) => item.userName);
+			this.selectName = selection.map((item) => item.username);
 		},
 		/** 排序触发事件 */
 		handleSortChange(column, prop, order) {

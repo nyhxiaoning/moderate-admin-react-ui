@@ -2,8 +2,8 @@
 	<!-- 授权用户 -->
 	<el-dialog title="选择用户" :visible.sync="visible" width="800px" top="5vh" append-to-body>
 		<el-form :model="queryParams" ref="queryForm" size="small" :inline="true">
-			<el-form-item label="用户名称" prop="userName">
-				<el-input v-model="queryParams.userName" placeholder="请输入用户名称" clearable @keyup.enter.native="handleQuery" />
+			<el-form-item label="用户名称" prop="username">
+				<el-input v-model="queryParams.username" placeholder="请输入用户名称" clearable @keyup.enter.native="handleQuery" />
 			</el-form-item>
 			<el-form-item label="手机号码" prop="phonenumber">
 				<el-input v-model="queryParams.phonenumber" placeholder="请输入手机号码" clearable @keyup.enter.native="handleQuery" />
@@ -16,7 +16,7 @@
 		<el-row>
 			<el-table @row-click="clickRow" ref="table" :data="userList" @selection-change="handleSelectionChange" height="260px">
 				<el-table-column type="selection" width="55"></el-table-column>
-				<el-table-column label="用户名称" prop="userName" :show-overflow-tooltip="true" />
+				<el-table-column label="用户名称" prop="username" :show-overflow-tooltip="true" />
 				<el-table-column label="用户昵称" prop="nickName" :show-overflow-tooltip="true" />
 				<el-table-column label="邮箱" prop="email" :show-overflow-tooltip="true" />
 				<el-table-column label="手机" prop="phonenumber" :show-overflow-tooltip="true" />
@@ -65,7 +65,7 @@ export default {
 				pageNum: 1,
 				pageSize: 10,
 				roleId: undefined,
-				userName: undefined,
+				username: undefined,
 				phonenumber: undefined,
 			},
 		};

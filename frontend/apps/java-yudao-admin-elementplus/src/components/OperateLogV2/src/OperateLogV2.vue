@@ -9,7 +9,7 @@
         placement="top"
       >
         <div class="el-timeline-right-content">
-          <el-tag class="mr-10px" type="success">{{ log.userName }}</el-tag>
+          <el-tag class="mr-10px" type="success">{{ log.username }}</el-tag>
           {{ log.action }}
         </div>
         <template #dot>

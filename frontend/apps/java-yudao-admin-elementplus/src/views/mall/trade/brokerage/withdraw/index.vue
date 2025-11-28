@@ -43,9 +43,9 @@
           class="!w-240px"
         />
       </el-form-item>
-      <el-form-item label="真实名字" prop="userName">
+      <el-form-item label="真实名字" prop="username">
         <el-input
-          v-model="queryParams.userName"
+          v-model="queryParams.username"
           placeholder="请输入真实名字"
           clearable
           @keyup.enter="handleQuery"
@@ -121,7 +121,7 @@
           <div v-if="scope.row.type === BrokerageWithdrawTypeEnum.WALLET.type">-</div>
           <div v-else>
             <div v-if="scope.row.userAccount">账号：{{ scope.row.userAccount }}</div>
-            <div v-if="scope.row.userName">真实姓名：{{ scope.row.userName }}</div>
+            <div v-if="scope.row.username">真实姓名：{{ scope.row.username }}</div>
           </div>
           <template v-if="scope.row.type === BrokerageWithdrawTypeEnum.BANK.type">
             <div>
@@ -235,7 +235,7 @@ const queryParams = reactive({
   pageSize: 10,
   userId: null,
   type: undefined,
-  userName: null,
+  username: null,
   userAccount: null,
   bankName: undefined,
   status: undefined,

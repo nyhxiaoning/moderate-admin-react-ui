@@ -10,14 +10,14 @@ import {
 
 const initialState = (): StoreState => {
   return {
-    userName: "",
+    username: "",
     token: getAccessToken() || "",
     permissions: [],
     routesPermissions: [],
     menuPermissions: null,
     locale: "zh", //中英文
     userId: null,
-  
+
     modalType: "",
     currentEditMenuData: null,
   };
@@ -60,7 +60,7 @@ const slice = createSlice({
       // 按钮权限
       // state.permissions = payload.permissions;
     },
-   
+
     // 设置路由权限数据
     setRoutesPermissions(state, { payload }: PayloadAction<string[]>) {
       state.routesPermissions = [...state.routesPermissions, ...payload];

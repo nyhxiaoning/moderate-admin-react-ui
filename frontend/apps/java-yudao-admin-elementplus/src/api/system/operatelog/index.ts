@@ -5,7 +5,7 @@ export type OperateLogVO = {
   traceId: string
   userType: number
   userId: number
-  userName: string
+  username: string
   type: string
   subType: string
   bizId: number

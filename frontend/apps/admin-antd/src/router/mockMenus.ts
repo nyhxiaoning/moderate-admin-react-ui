@@ -121,7 +121,7 @@ export const mockUserPermissions: FetchUserPermissinsRes = {
 
 // Mock StoreState
 export const mockStoreState: StoreState = {
-  userName: "admin",
+  username: "admin",
   token: "mock_access_token_123",
   qiniuToken: "mock_qiniu_token",
   permissions: ["SystemLayout", "UserPage", "RolePage"], // ROUTE_ID_KEY[]

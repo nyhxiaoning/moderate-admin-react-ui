@@ -24,7 +24,7 @@
     <!-- 分割线 -->
     <el-divider />
     <el-descriptions :column="2" label-class-name="desc-label">
-      <el-descriptions-item label="收款人姓名">{{ detailData.userName }}</el-descriptions-item>
+      <el-descriptions-item label="收款人姓名">{{ detailData.username }}</el-descriptions-item>
       <el-descriptions-item label="收款人账号">{{ detailData.userAccount }}</el-descriptions-item>
       <el-descriptions-item label="支付渠道">
         <dict-tag :type="DICT_TYPE.PAY_CHANNEL_CODE" :value="detailData.channelCode" />

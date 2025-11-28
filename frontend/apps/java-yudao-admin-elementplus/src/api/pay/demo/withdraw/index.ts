@@ -4,7 +4,7 @@ export interface PayDemoWithdrawVO {
   id?: number
   subject: string
   price: number
-  userName: string
+  username: string
   userAccount: string
   type: number
   status?: number

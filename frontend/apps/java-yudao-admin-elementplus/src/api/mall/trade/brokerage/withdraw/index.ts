@@ -7,7 +7,7 @@ export interface BrokerageWithdrawVO {
   feePrice: number
   totalPrice: number
   type: number
-  userName: string
+  username: string
   userAccount: string
   bankName: string
   bankAddress: string

@@ -1,6 +1,6 @@
 export type PermissionItem = string;
 export interface StoreState {
-  userName: string;
+  username: string;
   token: string;
   permissions: any[];
   menuPermissions: MenuPermissionItem[] | null;

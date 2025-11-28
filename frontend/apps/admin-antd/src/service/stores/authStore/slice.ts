@@ -22,7 +22,7 @@ const initialState = (): StoreState => {
       return item.id!;
     });
   return {
-    userName: "",
+    username: "",
     token: getAccessToken() || "",
     qiniuToken: "",
     permissions: defaultPermissions!,

@@ -30,8 +30,8 @@
       <el-form-item label="收款人账号" prop="userAccount">
         <el-input v-model="formData.userAccount" :placeholder="getAccountPlaceholder()" />
       </el-form-item>
-      <el-form-item label="收款人姓名" prop="userName">
-        <el-input v-model="formData.userName" placeholder="请输入收款人姓名" />
+      <el-form-item label="收款人姓名" prop="username">
+        <el-input v-model="formData.username" placeholder="请输入收款人姓名" />
       </el-form-item>
     </el-form>
     <template #footer>
@@ -54,7 +54,7 @@ const formData = ref<DemoWithdrawApi.PayDemoWithdrawVO>({
   subject: '',
   price: 0,
   type: 1,
-  userName: '',
+  username: '',
   userAccount: ''
 })
 const formRules = reactive({
@@ -109,7 +109,7 @@ const resetForm = () => {
     subject: '',
     price: 0,
     type: 1,
-    userName: '',
+    username: '',
     userAccount: ''
   }
   formRef.value?.resetFields()

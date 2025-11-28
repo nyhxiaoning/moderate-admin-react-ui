@@ -23,7 +23,7 @@ const { getPrefixCls } = useDesign()
 const prefixCls = getPrefixCls('lock-page')
 
 const avatar = computed(() => userStore.user.avatar || avatarImg)
-const userName = computed(() => userStore.user.nickname ?? 'Admin')
+const username = computed(() => userStore.user.nickname ?? 'Admin')
 
 const lockStore = useLockStore()
 
@@ -94,7 +94,7 @@ function handleShowForm(show = false) {
           <div class="flex flex-col items-center">
             <img :src="avatar" alt="" class="w-70px h-70px rounded-[50%]" />
             <span class="text-14px my-10px text-[var(--logo-title-text-color)]">
-              {{ userName }}
+              {{ username }}
             </span>
           </div>
           <ElInput

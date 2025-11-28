@@ -16,7 +16,7 @@
               <li class="list-group-item">
                 <svg-icon icon-class="user" />
                 用户账号
-                <div class="pull-right">{{ state.user.userName }}</div>
+                <div class="pull-right">{{ state.user.username }}</div>
               </li>
               <li class="list-group-item">
                 <svg-icon icon-class="phone" />

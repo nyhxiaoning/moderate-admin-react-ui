@@ -66,9 +66,9 @@
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="收款人姓名" prop="userName">
+      <el-form-item label="收款人姓名" prop="username">
         <el-input
-          v-model="queryParams.userName"
+          v-model="queryParams.username"
           placeholder="请输入收款人姓名"
           clearable
           @keyup.enter="handleQuery"
@@ -158,7 +158,7 @@
           </p>
         </template>
       </el-table-column>
-      <el-table-column label="收款人姓名" align="center" prop="userName" width="120" />
+      <el-table-column label="收款人姓名" align="center" prop="username" width="120" />
       <el-table-column label="收款账号" align="left" prop="userAccount" width="200" />
       <el-table-column label="转账标题" align="center" prop="subject" width="120" />
       <el-table-column label="转账渠道" align="center" prop="channelCode">
@@ -217,7 +217,7 @@ const queryParams = reactive({
   successTime: [],
   price: null,
   subject: null,
-  userName: null,
+  username: null,
   userAccount: null,
   createTime: []
 })

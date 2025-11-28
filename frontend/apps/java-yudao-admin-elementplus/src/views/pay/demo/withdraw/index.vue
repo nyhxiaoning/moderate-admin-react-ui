@@ -55,7 +55,7 @@
           <span>￥{{ (scope.row.price / 100.0).toFixed(2) }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="收款人姓名" align="center" prop="userName" min-width="150" />
+      <el-table-column label="收款人姓名" align="center" prop="username" min-width="150" />
       <el-table-column label="收款人账号" align="center" prop="userAccount" min-width="250" />
       <el-table-column label="提现状态" align="center" prop="status" width="100">
         <template #default="scope">

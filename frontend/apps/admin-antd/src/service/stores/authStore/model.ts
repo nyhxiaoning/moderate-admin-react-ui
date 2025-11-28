@@ -2,7 +2,7 @@ import { ROUTE_ID_KEY } from "src/router";
 
 export type PermissionItem = string;
 export interface StoreState {
-  userName: string;
+  username: string;
   token: string;
   qiniuToken: string;
   permissions: ROUTE_ID_KEY[];

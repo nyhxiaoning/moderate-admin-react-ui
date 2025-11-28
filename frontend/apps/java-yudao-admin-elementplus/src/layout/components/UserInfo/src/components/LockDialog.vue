@@ -22,7 +22,7 @@ const props = defineProps({
 
 const userStore = useUserStore()
 const avatar = computed(() => userStore.user.avatar || avatarImg)
-const userName = computed(() => userStore.user.nickname ?? 'Admin')
+const username = computed(() => userStore.user.nickname ?? 'Admin')
 
 const emit = defineEmits(['update:modelValue'])
 
@@ -69,7 +69,7 @@ const handleLock = async () => {
     <div class="flex flex-col items-center">
       <img :src="avatar" alt="" class="w-70px h-70px rounded-[50%]" />
       <span class="text-14px my-10px text-[var(--top-header-text-color)]">
-        {{ userName }}
+        {{ username }}
       </span>
     </div>
     <el-form ref="formRef" :model="formData" :rules="formRules" label-width="80px">

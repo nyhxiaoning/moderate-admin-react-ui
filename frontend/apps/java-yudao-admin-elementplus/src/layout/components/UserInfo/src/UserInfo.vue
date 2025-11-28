@@ -24,7 +24,7 @@ const { getPrefixCls } = useDesign()
 const prefixCls = getPrefixCls('user-info')
 
 const avatar = computed(() => userStore.user.avatar || avatarImg)
-const userName = computed(() => userStore.user.nickname ?? 'Admin')
+const username = computed(() => userStore.user.nickname ?? 'Admin')
 
 // 锁定屏幕
 const lockStore = useLockStore()
@@ -59,7 +59,7 @@ const toDocument = () => {
     <div class="flex items-center">
       <ElAvatar :src="avatar" alt="" class="w-[calc(var(--logo-height)-25px)] rounded-[50%]" />
       <span class="pl-[5px] text-14px text-[var(--top-header-text-color)] <lg:hidden">
-        {{ userName }}
+        {{ username }}
       </span>
     </div>
     <template #dropdown>

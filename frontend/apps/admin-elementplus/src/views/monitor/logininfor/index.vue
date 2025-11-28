@@ -4,8 +4,8 @@
       <el-form-item label="登录地址" prop="ipaddr">
         <el-input v-model="queryParams.ipaddr" placeholder="请输入登录地址" clearable style="width: 240px" @keyup.enter="handleQuery" />
       </el-form-item>
-      <el-form-item label="用户账号" prop="userName">
-        <el-input v-model="queryParams.userName" placeholder="请输入用户账号" clearable style="width: 240px" @keyup.enter="handleQuery" />
+      <el-form-item label="用户账号" prop="username">
+        <el-input v-model="queryParams.username" placeholder="请输入用户账号" clearable style="width: 240px" @keyup.enter="handleQuery" />
       </el-form-item>
       <el-form-item label="状态" prop="status">
         <el-select v-model="queryParams.status" placeholder="登录状态" clearable style="width: 240px">
@@ -48,7 +48,7 @@
     <el-table ref="logininforRef" v-loading="loading" :data="logininforList" @selection-change="handleSelectionChange" :default-sort="defaultSort" @sort-change="handleSortChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="访问编号" align="center" prop="infoId" />
-      <el-table-column label="用户账号" align="center" prop="userName" :show-overflow-tooltip="true" sortable="custom" :sort-orders="['descending', 'ascending']" />
+      <el-table-column label="用户账号" align="center" prop="username" :show-overflow-tooltip="true" sortable="custom" :sort-orders="['descending', 'ascending']" />
       <el-table-column label="地址" align="center" prop="ipaddr" :show-overflow-tooltip="true" />
       <el-table-column label="登录地点" align="center" prop="loginLocation" :show-overflow-tooltip="true" />
       <el-table-column label="操作系统" align="center" prop="os" :show-overflow-tooltip="true" />
@@ -92,7 +92,7 @@ const queryParams = ref({
   pageNum: 1,
   pageSize: 10,
   ipaddr: undefined,
-  userName: undefined,
+  username: undefined,
   status: undefined,
   orderByColumn: undefined,
   isAsc: undefined
@@ -124,7 +124,7 @@ function handleSelectionChange(selection) {
   ids.value = selection.map((item) => item.infoId)
   multiple.value = !selection.length
   single.value = selection.length != 1
-  selectName.value = selection.map((item) => item.userName)
+  selectName.value = selection.map((item) => item.username)
 }
 /** 排序触发事件 */
 function handleSortChange(column, prop, order) {
@@ -161,14 +161,14 @@ function handleClean() {
 }
 /** 解锁按钮操作 */
 function handleUnlock() {
-  const userName = selectName.value
+  const username = selectName.value
   proxy.$modal
-    .confirm('是否确认解锁用户"' + userName + '"数据项?')
+    .confirm('是否确认解锁用户"' + username + '"数据项?')
     .then(function () {
-      return unlockLogininfor(userName)
+      return unlockLogininfor(username)
     })
     .then(() => {
-      proxy.$modal.msgSuccess('用户' + userName + '解锁成功')
+      proxy.$modal.msgSuccess('用户' + username + '解锁成功')
     })
     .catch(() => {})
 }
